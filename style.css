@@ -1,0 +1,141 @@
+/* RESET DEFAULT BROWSER STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* BODY BACKGROUND WITH BLENDING COLORS */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #151515, #4e035f);
+    color: rgb(255, 255, 255);
+}
+
+/* CENTER CONTENT */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+/* FRONT PAGE LAYOUT */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* PROFILE IMAGE */
+.hero img {
+    width: 250px;
+    border-radius: 50%;
+    border: 4px solid white;
+}
+
+/* TEXT AREA */
+.hero-text h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* BUTTONS */
+.btn-group a {
+    text-decoration: none;
+    background: white;
+    color: #151515;
+    padding: 12px 20px;
+    border-radius: 25px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* HOVER EFFECT */
+.btn-group a:hover {
+    background: #ffd6ff;
+}
+
+/* CERTIFICATE GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CERTIFICATE IMAGE */
+.grid img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* MODAL POPUP (HIDDEN BY DEFAULT) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SHOW MODAL WHEN CLICKED */
+.modal:target {
+    display: flex;
+}
+
+/* MODAL CONTENT */
+.modal-content {
+    position: relative; 
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 80vh;     /* Prevents image overflow */
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* CLOSE BUTTON - TOP RIGHT */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-decoration: none;
+    color: white;
+    background: #764ba2;
+    padding: 6px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* PROJECT LIST */
+.project-list a {
+    display: block;
+    background: white;
+    color: #764ba2;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.close:hover {
+    background: #5a3c8b;
+}
