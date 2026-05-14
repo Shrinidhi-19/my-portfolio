@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shrinidhi D | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050816;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: rgba(128, 0, 255, 0.25);
+      filter: blur(140px);
+      top: -150px;
+      left: -120px;
+      z-index: -1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: rgba(0, 183, 255, 0.18);
+      filter: blur(140px);
+      bottom: -150px;
+      right: -120px;
+      z-index: -1;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      position: fixed;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 999;
+    }
+
+    nav h2 {
+      font-size: 1.5rem;
+      background: linear-gradient(to right, #7f5af0, #2cb67d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav ul li a:hover {
+      color: #7f5af0;
+    }
+
+    section {
+      width: 100%;
+      padding: 120px 8% 80px;
+    }
+
+    .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(to right, #7f5af0, #2cb67d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text p {
+      max-width: 650px;
+      color: #cfcfcf;
+      line-height: 1.8;
+      margin-bottom: 35px;
+      font-size: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 40px;
+      border: none;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .primary-btn {
+      background: linear-gradient(to right, #7f5af0, #6246ea);
+      box-shadow: 0 0 25px rgba(127,90,240,0.5);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 70%;
+      height: 4px;
+      background: linear-gradient(to right, #7f5af0, #2cb67d);
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      border-radius: 20px;
+    }
+
+    .about-box,
+    .skill-card,
+    .project-card,
+    .education-card,
+    .cert-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(18px);
+      border-radius: 24px;
+      transition: 0.4s ease;
+    }
+
+    .about-box {
+      padding: 40px;
+      line-height: 1.9;
+      color: #d6d6d6;
+    }
+
+    .about-box:hover,
+    .skill-card:hover,
+    .project-card:hover,
+    .education-card:hover,
+    .cert-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 30px rgba(127,90,240,0.25);
+    }
+
+    .skills-grid,
+    .project-grid,
+    .education-grid,
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .skill-card {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .skill-card i {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      color: #7f5af0;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: #bdbdbd;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-image {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.08);
+    }
+
+    .project-content {
+      padding: 28px;
+      position: relative;
+    }
+
+    .project-content h3 {
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    .project-content p {
+      color: #cfcfcf;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+    
+.project-link {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 1.2rem;
+
+  transition: all 0.35s ease;
+}
+
+.project-link i {
+  color: white;
+}
+
+.project-link:hover {
+  transform: scale(1.1);
+  background: linear-gradient(to right, #7f5af0, #6246ea);
+  box-shadow: 0 0 25px rgba(127,90,240,0.5);
+}
+
+    .education-card,
+    .cert-box {
+      padding: 30px;
+    }
+
+    .education-card h3,
+    .cert-box h3 {
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .education-card p,
+    .cert-box p {
+      color: #c9c9c9;
+      line-height: 1.8;
+    }
+
+    .achievement-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .achievement-item {
+      background: rgba(255,255,255,0.05);
+      border-left: 5px solid #7f5af0;
+      padding: 24px;
+      border-radius: 16px;
+      color: #d3d3d3;
+      line-height: 1.8;
+    }
+
+    .contact-box {
+  position: relative;
+  text-align: center;
+
+  padding: 90px 40px;
+  border-radius: 32px;
+
+  background:
+    radial-gradient(circle at top left, rgba(127,90,240,0.22), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(0,183,255,0.18), transparent 35%),
+    rgba(10, 14, 35, 0.75);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+
+  box-shadow:
+    0 0 40px rgba(0,0,0,0.35),
+    inset 0 0 20px rgba(255,255,255,0.03);
+}
+
+    .contact-box h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: white;
+}
+
+    .contact-box p {
+  color: #cfcfcf;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+.socials a {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.14);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.08),
+    inset 0 0 12px rgba(255,255,255,0.04);
+
+  transition: all 0.35s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.socials a i {
+  font-size: 2rem;
+  color: white;
+  z-index: 2;
+  transition: 0.3s ease;
+}
+
+.socials a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.02)
+    );
+
+  z-index: 1;
+}
+
+.socials a:hover {
+  transform: translateY(-6px) scale(1.08);
+
+  background: linear-gradient(to right, #7f5af0, #6246ea);
+
+  box-shadow:
+    0 0 25px rgba(127,90,240,0.65),
+    0 0 50px rgba(127,90,240,0.35);
+}
+
+.socials a:hover i {
+  transform: scale(1.12);
+}
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #9f9f9f;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 3rem;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .glass-circle {
+        width: 280px;
+        height: 280px;
+      }
+      
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2>Shrinidhi D</h2>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+  <div class="hero-text fade-up">
+    <h1>Hi, I'm <span>Shrinidhi D</span></h1>
+
+    <p>
+      A passionate Information Technology student focused on software development,
+      AI-driven applications, and emerging technologies. I enjoy building practical
+      solutions, learning through projects, and continuously improving my technical skills.
+    </p>
+
+    <div class="buttons">
+      <a href="#projects" class="btn primary-btn">View Projects</a>
+      <a href="#contact" class="btn secondary-btn">Contact Me</a>
+    </div>
+  </div>
+</section>
+
+  <section id="about">
+    <h2 class="section-title fade-up">About Me</h2>
+
+    <div class="about-box fade-up">
+      I am currently pursuing B.Tech Information Technology at Dr.N.G.P. Institute of Technology with a CGPA of 8.79.
+      I have a strong interest in Artificial Intelligence, software engineering, and web development.
+      I actively participate in technical events, hackathons, workshops, and project expos to sharpen my practical skills.
+      
+      My goal is not just to learn technologies, but to build impactful solutions that solve real-world problems.
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title fade-up">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card fade-up">
+        <i class="fa-brands fa-java"></i>
+        <h3>Programming</h3>
+        <p>
+          Java (Primary), C, Python with strong interest in problem solving and software development.
+        </p>
+      </div>
+
+      <div class="skill-card fade-up">
+        <i class="fa-solid fa-globe"></i>
+        <h3>Web Development</h3>
+        <p>
+          HTML, CSS, JavaScript with experience building responsive and modern portfolio websites.
+        </p>
+      </div>
+
+      <div class="skill-card fade-up">
+        <i class="fa-solid fa-brain"></i>
+        <h3>AI & Emerging Tech</h3>
+        <p>
+          Hands-on exposure to Generative AI, AI chatbots, automation systems, and AI-powered applications.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title fade-up">Projects</h2>
+
+    <div class="project-grid">
+
+      <div class="project-card fade-up">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="AI Chatbot">
+        </div>
+
+        <div class="project-content">
+          <a href="https://multilingual-ai-assistant.base44.app/" target="_blank" class="project-link">
+          <i class="fa-solid fa-link"></i>
+          </a>
+
+          <h3>Multilingual AI Chatbot</h3>
+
+          <p>
+            Developed an AI-powered multilingual assistant supporting 35+ languages with real-time text and voice translation.
+            The project secured 3rd Prize at KIT College Inter-College Technical Event.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Bill Processing">
+        </div>
+
+        <div class="project-content">
+          <a href="https://claude.ai/public/artifacts/2188eec9-b2a4-4796-ac36-c4c2a60d332c" target="_blank" class="project-link">
+          <i class="fa-solid fa-link"></i>
+          </a>
+
+          <h3>AI-Based Bill Processing System</h3>
+
+          <p>
+            Built an AI-powered invoice analysis system that extracts bill data, classifies invoices based on amount,
+            and automatically sends notifications for efficient monitoring.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Interview System">
+        </div>
+
+        <div class="project-content">
+          <a href="https://github.com/Shrinidhi-19/interview-ai" target="_blank" class="project-link">
+          <i class="fa-solid fa-link"></i>
+          </a>
+
+          <h3>AI-Driven Mock Interview System</h3>
+
+          <p>
+            Developing a centralized skill development platform that organizes technical programs,
+            courses, and learning resources in a structured and accessible format.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Portfolio Website">
+        </div>
+
+        <div class="project-content">
+          <a href="https://github.com/Shrinidhi-19/my-portfolio" target="_blank" class="project-link">
+          <i class="fa-solid fa-link"></i>
+          </a>
+
+          <h3>Portfolio Website</h3>
+
+          <p>
+            Designed and developed a responsive personal portfolio website using HTML and CSS
+            to showcase projects, achievements, technical skills, and contact information.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title fade-up">Education</h2>
+
+    <div class="education-grid">
+
+      <div class="education-card fade-up">
+        <h3>B.Tech Information Technology</h3>
+        <p>
+          Dr.N.G.P. Institute of Technology, Coimbatore<br>
+          2024 - 2028<br>
+          CGPA: 8.79 / 10
+        </p>
+      </div>
+
+      <div class="education-card fade-up">
+        <h3>Class 12</h3>
+        <p>
+          SKL Public Matric Higher Secondary School<br>
+          Percentage: 92.6%
+        </p>
+      </div>
+
+      <div class="education-card fade-up">
+        <h3>Class 10</h3>
+        <p>
+          SKL Public Matric Higher Secondary School<br>
+          Percentage: 97%
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title fade-up">Certifications</h2>
+
+    <div class="cert-grid">
+
+      <div class="cert-box fade-up">
+        <h3>NPTEL Java Certification</h3>
+        <p>
+          Certified in Programming in Java with 97% and ranked in the Top 2%.
+        </p>
+      </div>
+
+      <div class="cert-box fade-up">
+        <h3>Great Learning Certifications</h3>
+        <p>
+          Completed certifications in C, Python, HTML, CSS, AI Fundamentals, and IoT Fundamentals.
+        </p>
+      </div>
+
+      <div class="cert-box fade-up">
+        <h3>Workshops & Hackathons</h3>
+        <p>
+          Participated in Generative AI workshops, IIT Bombay Git Training, and a 24-hour hackathon.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title fade-up">Achievements</h2>
+
+    <div class="achievement-list">
+
+      <div class="achievement-item fade-up">
+        Received 100% Merit Scholarship for academic excellence.
+      </div>
+
+      <div class="achievement-item fade-up">
+        Won 3rd Prize at KIT College Inter-College Technical Event for developing a Multilingual AI Chatbot.
+      </div>
+
+      <div class="achievement-item fade-up">
+        Solved 100+ DSA problems on LeetCode.
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-box fade-up">
+      <h2>Let's Connect</h2>
+
+      <p>
+        Open to internships, collaborations, hackathons, and exciting tech opportunities.
+      </p>
+
+
+<div class="socials">
+
+  <!-- GitHub -->
+  <a href="https://github.com/Shrinidhi-19" target="_blank">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/shrinidhi-dhamodharan-746bb1329/" target="_blank">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <!-- Gmail -->
+  <a href="mailto:dshrinidhi2006@gmail.com">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Shrinidhi D • Built with HTML, CSS & JavaScript
+  </footer>
+
+  <script>
+    const fadeElements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    fadeElements.forEach((el) => observer.observe(el));
+  </script>
+
+</body>
+</html>
